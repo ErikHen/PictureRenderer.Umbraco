@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureRenderer.Umbraco", "PictureRenderer.Umbraco.csproj", "{EA318728-85E0-46CF-A61E-293DE3F4DCBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA318728-85E0-46CF-A61E-293DE3F4DCBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA318728-85E0-46CF-A61E-293DE3F4DCBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA318728-85E0-46CF-A61E-293DE3F4DCBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA318728-85E0-46CF-A61E-293DE3F4DCBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {787FBDD1-13BC-4070-96EB-1822BF94C082}
+	EndGlobalSection
+EndGlobal
