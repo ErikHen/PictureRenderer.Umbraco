@@ -12,7 +12,8 @@
     <PackageIconUrl />
     <PackageTags>Umbraco Picture</PackageTags>
     <PackageProjectUrl>https://github.com/ErikHen/PictureRenderer.Umbraco</PackageProjectUrl>
-    <Description>Render Umbraco images using a picture HTML element to optimize the images depeding on device capabilities and screen size. Images may be responsive and lazy loaded, and will always have the correct aspect ratio no matter the original image size. Supports focal point when cropping images.</Description>
+    <Description>Render images using a picture HTML element. CMS editors don't have to care about image sizes or formats. 
+The most optimal image will always be used depending on the capabilities, screen size, and pixel density of the device that is used when visiting your Umbraco web site.</Description>
   </PropertyGroup>
 
   <ItemGroup>
