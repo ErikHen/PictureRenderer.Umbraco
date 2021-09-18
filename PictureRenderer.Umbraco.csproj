@@ -2,12 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Erik Henningson</Authors>
+    <Company />
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <RepositoryUrl>https://github.com/ErikHen/PictureRenderer.Umbraco</RepositoryUrl>
+    <PackageIcon>picture_icon.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags>Umbraco Picture</PackageTags>
+    <PackageProjectUrl>https://github.com/ErikHen/PictureRenderer.Umbraco</PackageProjectUrl>
+    <Description>Render Umbraco images using a picture HTML element to optimize the images depeding on device capabilities and screen size. Images may be responsive and lazy loaded, and will always have the correct aspect ratio no matter the original image size. Supports focal point when cropping images.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="PictureRenderer" Version="1.1.0-preview" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.0.0-rc002" />
+    <PackageReference Include="PictureRenderer" Version="1.1.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.0.0-rc003" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="_Build\picture_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
