@@ -76,3 +76,9 @@ To make sure that the main object in your image is still visible, you can use a 
 ## Alt text
 You can add a field/property on the Image type called "pictureAltText". 
 The editor can add some some value to this field that will be used when rendering the alt text in the picture element.
+
+
+<br><br>
+## Version history
+**1.0** First version. Build for release candidate of Umbraco 9. <br>
+**1.1** Update reference to stable Umbraco 9.0.0 .

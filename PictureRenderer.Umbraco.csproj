@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/ErikHen/PictureRenderer.Umbraco</RepositoryUrl>
     <PackageIcon>picture_icon.png</PackageIcon>
     <PackageIconUrl />
-    <PackageTags>Umbraco Picture</PackageTags>
+    <PackageTags>Umbraco Picture Resize ImageSharp</PackageTags>
     <PackageProjectUrl>https://github.com/ErikHen/PictureRenderer.Umbraco</PackageProjectUrl>
     <Description>Render images using a picture HTML element. CMS editors don't have to care about image sizes or formats. 
 The most optimal image will always be used depending on the capabilities, screen size, and pixel density of the device used when visiting your Umbraco web site.</Description>
@@ -19,8 +19,8 @@ The most optimal image will always be used depending on the capabilities, screen
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="PictureRenderer" Version="1.2.1,2.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.0.0-rc003,10.0" />
+    <PackageReference Include="PictureRenderer" Version="[1.2.2,2)" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="[9.0.0,10)" />
   </ItemGroup>
 
   <ItemGroup>
