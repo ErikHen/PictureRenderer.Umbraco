@@ -8,7 +8,7 @@ The most optimal image will always be used depending on the capabilities, screen
 PictureRenderer.Umbraco supports using a focal point when cropping/resizing, as well as getting image alt attribute from the Media object.
 
 ## How to use
-* Add [PictureRenderer.Umbraco](https://www.nuget.org/packages/PictureRenderer.Umbraco/) to your Umbraco 9+ solution.
+* Add [PictureRenderer.Umbraco](https://www.nuget.org/packages/PictureRenderer.Umbraco/) to your Umbraco 9 solution.
 * Create Picture profiles for the different types of images that you have on your web site. A Picture profile describes how an image should be scaled in various cases. <br>
 You could for example create Picture profiles for: “Top hero image”, “Teaser image”, “Image gallery thumbnail”.
 * Render picture elements with the Picture Html helper.
