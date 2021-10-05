@@ -4,13 +4,16 @@
 <br><br>
 Render Umbraco images using a picture HTML element. CMS editors don't have to care about image sizes or formats. 
 The most optimal image will always be used depending on the capabilities, screen size, and pixel density of the device that is used when visiting your web site.
-<br><br>
+<br>
 PictureRenderer.Umbraco supports using a focal point when cropping/resizing, as well as getting image alt attribute from the Media object.
+<br><br>
+If you are unfamiliar with the details of the Picture element i highly recommed reading
+ [this](https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-use-html5-picture-for-responsive-images--cms-21015) and/or [this](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/).
 
 ## How to use
 * Add [PictureRenderer.Umbraco](https://www.nuget.org/packages/PictureRenderer.Umbraco/) to your Umbraco 9 solution.
 * Create Picture profiles for the different types of images that you have on your web site. A Picture profile describes how an image should be scaled in various cases. <br>
-You could for example create Picture profiles for: “Top hero image”, “Teaser image”, “Image gallery thumbnail”.
+You could for example create Picture profiles for: "Top hero image", "Teaser image", "Image gallery thumbnail".
 * Render picture elements with the Picture Html helper.
 
 
@@ -50,7 +53,12 @@ public static class PictureProfiles
         };
 }
 ```
-Read more about defining picture profiles [here](https://github.com/ErikHen/PictureRenderer#picture-profile).
+* **SrcSetWidths** – The different image widths you want the browser to select from. These values are used when rendering the srcset attribute.
+* **Sizes** – Define the size (width) the image should be according to a set of “media conditions” (similar to css media queries). Values are used to render the sizes attribute.
+* **AspectRatio (optional)** – The wanted aspect ratio of the image (width/height). Ex: An image with aspect ratio 16:9 = 16/9 = 1.777.
+* **Quality (optional)** - Image quality. Lower value = less file size. Not valid for all image formats. Deafult value: 80.
+* **FallbackWidth (optional)** – This image width will be used in browsers that don’t support the picture element. Will use the largest SrcSetWidth if not set.
+
 #### Render picture element for "Image1". 
 
 ```@Html.Picture(Model.Image1, PictureProfiles.Thumbnail)```
@@ -76,8 +84,11 @@ To make sure that the main object in your image is still visible, you can use a 
 ## Alt text
 You can add a field/property on the Image type called "pictureAltText". 
 The editor can add some some value to this field that will be used when rendering the alt text in the picture element.
+![](https://raw.githubusercontent.com/ErikHen/PictureRenderer.Umbraco/main/_Build/alt_text_property.png)
 
-
+## WebP images
+As soon as [ImageSharp.Web supports creating WebP images](https://github.com/SixLabors/ImageSharp/pull/1552), WebP versions of the images will be added to the rendered Picture element. 
+Then [browsers that supports WebP](https://caniuse.com/webp) will have significally improved download size .
 <br><br>
 ## Version history
 **1.0** First version. Build for release candidate of Umbraco 9. <br>
