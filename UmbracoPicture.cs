@@ -10,12 +10,17 @@ namespace PictureRenderer.Umbraco
 {
     public static class UmbracoPicture
     {
-        public static HtmlString Picture(this IHtmlHelper helper, MediaWithCrops mediaWithCrops, PictureProfileBase profile, LazyLoading lazyLoading)
+        public static HtmlString Picture(this IHtmlHelper helper, MediaWithCrops mediaWithCrops, PictureProfileBase profile, LazyLoading lazyLoading, string cssClass = "")
         {
-            return Picture(helper, mediaWithCrops, profile, string.Empty, lazyLoading);
+            return Picture(helper, mediaWithCrops, profile, string.Empty, lazyLoading, cssClass);
         }
 
-        public static HtmlString Picture(this IHtmlHelper helper, MediaWithCrops mediaWithCrops, PictureProfileBase profile, string altText = "", LazyLoading lazyLoading = LazyLoading.Browser)
+        public static HtmlString Picture(this IHtmlHelper helper, MediaWithCrops mediaWithCrops, PictureProfileBase profile, string altText, string cssClass)
+        {
+            return Picture(helper, mediaWithCrops, profile, altText, LazyLoading.Browser, cssClass);
+        }
+
+        public static HtmlString Picture(this IHtmlHelper helper, MediaWithCrops mediaWithCrops, PictureProfileBase profile, string altText = "", LazyLoading lazyLoading = LazyLoading.Browser, string cssClass = "")
         {
             if (mediaWithCrops == null)
             {
@@ -32,16 +37,21 @@ namespace PictureRenderer.Umbraco
                 return Picture(helper, mediaWithCrops.LocalCrops, profile, altText, lazyLoading);
             }
            
-            return Picture(helper, (ImageCropperValue)mediaWithCrops.Content.Value("umbracofile"), profile, altText, lazyLoading);
+            return Picture(helper, (ImageCropperValue)mediaWithCrops.Content.Value("umbracofile"), profile, altText, lazyLoading, cssClass);
         }
 
 
-        public static HtmlString Picture(this IHtmlHelper helper, ImageCropperValue imageCropper, PictureProfileBase profile, LazyLoading lazyLoading)
+        public static HtmlString Picture(this IHtmlHelper helper, ImageCropperValue imageCropper, PictureProfileBase profile, LazyLoading lazyLoading, string cssClass = "")
         {
-            return Picture(helper, imageCropper, profile, string.Empty, lazyLoading);
+            return Picture(helper, imageCropper, profile, string.Empty, lazyLoading, cssClass);
         }
 
-        public static HtmlString Picture(this IHtmlHelper helper, ImageCropperValue imageCropper, PictureProfileBase profile, string altText = "", LazyLoading lazyLoading = LazyLoading.Browser)
+        public static HtmlString Picture(this IHtmlHelper helper, ImageCropperValue imageCropper, PictureProfileBase profile, string altText, string cssClass)
+        {
+            return Picture(helper, imageCropper, profile, altText, LazyLoading.Browser, cssClass);
+        }
+
+        public static HtmlString Picture(this IHtmlHelper helper, ImageCropperValue imageCropper, PictureProfileBase profile, string altText = "", LazyLoading lazyLoading = LazyLoading.Browser, string cssClass = "")
         {
             if (imageCropper == null)
             {
@@ -54,7 +64,7 @@ namespace PictureRenderer.Umbraco
                 focalPoint.x = decimal.ToDouble(imageCropper.FocalPoint.Left);
                 focalPoint.y = decimal.ToDouble(imageCropper.FocalPoint.Top);
             }
-            return new HtmlString(PictureRenderer.Picture.Render(imageCropper.ToString(), profile, altText, lazyLoading, focalPoint));
+            return new HtmlString(PictureRenderer.Picture.Render(imageCropper.ToString(), profile, altText, lazyLoading, focalPoint, cssClass));
         }
 
     }

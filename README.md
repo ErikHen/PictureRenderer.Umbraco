@@ -53,15 +53,24 @@ public static class PictureProfiles
         };
 }
 ```
-* **SrcSetWidths** – The different image widths you want the browser to select from. These values are used when rendering the srcset attribute.
-* **Sizes** – Define the size (width) the image should be according to a set of “media conditions” (similar to css media queries). Values are used to render the sizes attribute.
-* **AspectRatio (optional)** – The wanted aspect ratio of the image (width/height). Ex: An image with aspect ratio 16:9 = 16/9 = 1.777.
+* **SrcSetWidths** - The different image widths you want the browser to select from. These values are used when rendering the srcset attribute.
+* **Sizes** - Define the size (width) the image should be according to a set of "media conditions" (similar to css media queries). Values are used to render the sizes attribute.
+* **AspectRatio (optional)** - The wanted aspect ratio of the image (width/height). Ex: An image with aspect ratio 16:9 = 16/9 = 1.777.
 * **Quality (optional)** - Image quality. Lower value = less file size. Not valid for all image formats. Deafult value: 80.
-* **FallbackWidth (optional)** – This image width will be used in browsers that don’t support the picture element. Will use the largest SrcSetWidth if not set.
+* **FallbackWidth (optional)** - Image width for browsers without support for picture element. Will use the largest SrcSetWidth if not set.
+* **ImageDecoding (optional)** - Value for img element `decoding` attribute. Default value: `async`.
+* **ImgWidthHeight (optional)** - If true, `width` and `height` attributes will be rendered on the img element.
+<br><br>
 
 #### Render picture element for "Image1". 
 
 ```@Html.Picture(Model.Image1, PictureProfiles.Thumbnail)```
+##### Parameters
+* **mediaWithCrops/imageCropper** - Media or Image cropper object.
+* **profile** - The Picture profile that specifies image widths, etc..
+* **altText (optional)** - Will overide alt text set on Media.
+* **lazyLoading (optional)** - Type of lazy loading. Currently only [browser native lazy loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading#images_and_iframes) (or none).
+* **cssClass (optional)** - Css class for img element.
 <br>
 
 The result would be something like this
@@ -83,7 +92,7 @@ To make sure that the main object in your image is still visible, you can use a 
 
 ## Alt text
 You can add a field/property on the Image type called "pictureAltText". 
-The editor can add some some value to this field that will be used when rendering the alt text in the picture element.
+This value will be used when rendering the alt text in the `<img>` element.
 ![](https://raw.githubusercontent.com/ErikHen/PictureRenderer.Umbraco/main/_Build/alt_text_property.png)
 
 ## WebP images
@@ -91,5 +100,6 @@ As soon as [ImageSharp.Web supports creating WebP images](https://github.com/Six
 Then [browsers that supports WebP](https://caniuse.com/webp) will have significally improved download size .
 <br><br>
 ## Version history
+**1.2** Possible to render `class`, `decoding`, and `width` + `height` attributes on the `<img>` element. <br>
+**1.1** Update reference to stable Umbraco 9.0.0 . <br>
 **1.0** First version. Build for release candidate of Umbraco 9. <br>
-**1.1** Update reference to stable Umbraco 9.0.0 .
