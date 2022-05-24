@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PictureRenderer.Profiles;
@@ -27,9 +28,10 @@ namespace PictureRenderer.Umbraco
                 return new HtmlString(string.Empty);
             }
 
-            if (string.IsNullOrEmpty(altText) && !string.IsNullOrEmpty((string)mediaWithCrops.Content.Value("pictureAltText")))
+            //var altTextFromImage = mediaWithCrops.Content.Properties.FirstOrDefault(p => p.Alias == "pictureAltText")?.ToString();
+            if (string.IsNullOrEmpty(altText) && !string.IsNullOrEmpty((string)mediaWithCrops.Content.GetProperty("pictureAltText")?.GetValue()))
             {
-                altText = (string) mediaWithCrops.Content.Value("pictureAltText");
+                altText = (string)mediaWithCrops.Content.GetProperty("pictureAltText")?.GetValue();
             }
 
             if (mediaWithCrops.LocalCrops.HasFocalPoint())
@@ -37,7 +39,7 @@ namespace PictureRenderer.Umbraco
                 return Picture(helper, mediaWithCrops.LocalCrops, profile, altText, lazyLoading);
             }
            
-            return Picture(helper, (ImageCropperValue)mediaWithCrops.Content.Value("umbracofile"), profile, altText, lazyLoading, cssClass);
+            return Picture(helper, (ImageCropperValue)mediaWithCrops.Content.GetProperty("umbracofile")?.GetValue(), profile, altText, lazyLoading, cssClass);
         }
 
 
@@ -64,7 +66,7 @@ namespace PictureRenderer.Umbraco
                 focalPoint.x = decimal.ToDouble(imageCropper.FocalPoint.Left);
                 focalPoint.y = decimal.ToDouble(imageCropper.FocalPoint.Top);
             }
-            return new HtmlString(PictureRenderer.Picture.Render(imageCropper.ToString(), profile, altText, lazyLoading, focalPoint, cssClass));
+            return new HtmlString(PictureRenderer.Picture.Render(imageCropper.Src, profile, altText, lazyLoading, focalPoint, cssClass));
         }
 
     }
