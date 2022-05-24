@@ -11,7 +11,7 @@ If you are unfamiliar with the details of the Picture element i highly recommed 
  [this](https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-use-html5-picture-for-responsive-images--cms-21015) and/or [this](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/).
 
 ## How to use
-* Add [PictureRenderer.Umbraco](https://www.nuget.org/packages/PictureRenderer.Umbraco/) to your Umbraco 9 solution.
+* Add [PictureRenderer.Umbraco](https://www.nuget.org/packages/PictureRenderer.Umbraco/) to your Umbraco 9+ solution.
 * Create Picture profiles for the different types of images that you have on your web site. A Picture profile describes how an image should be scaled in various cases. <br>
 You could for example create Picture profiles for: "Top hero image", "Teaser image", "Image gallery thumbnail".
 * Render picture elements with the Picture Html helper.
@@ -86,20 +86,23 @@ The result would be something like this
 
 See also the [Umbraco sample project](https://github.com/ErikHen/PictureRenderer.Samples/tree/master/Umbraco9-rc)
 <br><br>
+## WebP images
+WebP versions of the images will be added to the rendered Picture element (from v2). 
+[browsers that supports WebP](https://caniuse.com/webp) will have significally improved download size.
+
 ## Focal point 
 Images will be cropped if the aspect ratio defined in the picture profile is not the same as the image origin. 
 To make sure that the main object in your image is still visible, you can use a focal point.
 
 ## Alt text
 You can add a field/property on the Image type called "pictureAltText". 
-This value will be used when rendering the alt text in the `<img>` element.
+This value will be used when rendering the alt text in the `<img>` element.<br>
 ![](https://raw.githubusercontent.com/ErikHen/PictureRenderer.Umbraco/main/_Build/alt_text_property.png)
 
-## WebP images
-As soon as [ImageSharp.Web supports creating WebP images](https://github.com/SixLabors/ImageSharp/pull/1552), WebP versions of the images will be added to the rendered Picture element. 
-Then [browsers that supports WebP](https://caniuse.com/webp) will have significally improved download size .
+
 <br><br>
 ## Version history
+**2.0** WebP support. Targeting Umbraco 10 and .Net6. <br>
 **1.2** Possible to render `class`, `decoding`, and `width` + `height` attributes on the `<img>` element. <br>
 **1.1** Update reference to stable Umbraco 9.0.0 . <br>
 **1.0** First version. Build for release candidate of Umbraco 9. <br>
